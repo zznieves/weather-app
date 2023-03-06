@@ -10,6 +10,26 @@ function App() {
 
     // test code: log arguments to console
     console.log(city + stateCode + countryCode);
+
+    // pass arguments to fetch the city's latitude and longitude
+    getCoordinates(city, stateCode, countryCode);
+
+  }
+
+  // fetch latitude and longitude
+  async function getCoordinates(city, stateCode, countryCode) {
+
+    // endpoint
+    let endpoint = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${stateCode},${countryCode}&limit=1&appid=5161d459aa5061baac3692c659a4a040`;
+
+    const response = await fetch(endpoint);
+    const data = await response.json();
+
+    // test code: log JSON data to console
+    console.log(`
+    Latitude: ${data[0].lat}
+    Longitude: ${data[0].lon}
+    `);
   }
 
   return (
