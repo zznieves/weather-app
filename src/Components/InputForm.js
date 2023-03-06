@@ -20,17 +20,27 @@ function InputForm(props) {
     // *** this value won't change
     const [countryCode, setCountryCode] = useState('US');
 
+    // onChange event handler for input
+    const changeInput = ({target}) => {
+
+        // new value
+        let newText = target.value;
+
+        // change the appropriate state-property
+        (target.name === 'city') ? (setCity(newText)) : (setStateCode(newText));
+    };
+
     // return HTML(JSX)
     return (
         <div id='form'>
             <div>
-                <input type='text' value={city}/>
+                <input type='text' name='city' value={city} onChange={changeInput}/>
             </div>
             <div>
-                <input  type='text' value={stateCode} />
+                <input  type='text' name='stateCode' value={stateCode} onChange={changeInput} />
             </div>
             <div>
-                <input type='text' value={countryCode} />
+                <input type='text' name='countryCode' value={countryCode} />
             </div>
             <button type='submit'>Submit</button>
         </div>
