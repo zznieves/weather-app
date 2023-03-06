@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 // functional component
 function InputForm(props) {
 
+    // destructure props
+    const { fetchData } = props;
+
     /**
      *  state Hook
      *      1. variable for state
@@ -40,9 +43,9 @@ function InputForm(props) {
                 <input  type='text' name='stateCode' value={stateCode} onChange={changeInput} />
             </div>
             <div>
-                <input type='text' name='countryCode' value={countryCode} />
+                <input type='text' name='countryCode' value={countryCode} readOnly />
             </div>
-            <button type='submit'>Submit</button>
+            <button type='submit' onClick={() => fetchData(city, stateCode, countryCode)}>Submit</button>
         </div>
     );
 }
