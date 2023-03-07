@@ -21,7 +21,7 @@ function InputForm(props) {
 
     // state for country code: (scope of project version for United States only) preset to US 
     // *** this value won't change
-    const [countryCode, setCountryCode] = useState('US');
+    const countryCode = 'US';
 
     // onChange event handler for input
     const changeInput = ({target}) => {
@@ -96,7 +96,7 @@ function InputForm(props) {
                 </select>
             </div>
             <div>
-                <input type='text' name='countryCode' value={countryCode} readOnly />
+                <input type='text' name='countryCode' value='US' readOnly />
             </div>
             <button type='submit' onClick={() => fetchData(city, stateCode, countryCode)}>Submit</button>
         </div>

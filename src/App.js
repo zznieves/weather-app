@@ -13,6 +13,9 @@ function App() {
   // onClick event handler for InputForm to submit user input
   function fetchData(city, stateCode, countryCode) {
 
+    // Capitalize first letter of city
+    city = city[0].toUpperCase() + city.slice(1);
+
     // pass arguments to fetch the city's latitude and longitude
     getCoordinates(city, stateCode, countryCode);
 
