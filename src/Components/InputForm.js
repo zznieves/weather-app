@@ -93,13 +93,12 @@ function InputForm(props) {
                     <option value="WV">West Virginia</option>
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
-</select>
+                </select>
             </div>
             <div>
                 <input type='text' name='countryCode' value={countryCode} readOnly />
             </div>
             <button type='submit' onClick={() => fetchData(city, stateCode, countryCode)}>Submit</button>
-            <p>{stateCode}</p>
         </div>
     );
 }

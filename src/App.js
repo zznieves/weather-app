@@ -13,9 +13,6 @@ function App() {
   // onClick event handler for InputForm to submit user input
   function fetchData(city, stateCode, countryCode) {
 
-    // test code: log arguments to console
-    console.log(city + stateCode + countryCode);
-
     // pass arguments to fetch the city's latitude and longitude
     getCoordinates(city, stateCode, countryCode);
 
@@ -47,9 +44,6 @@ function App() {
     const response = await fetch(endpoint);
     const data = await response.json();
 
-    // test code: log weather data to the console
-    console.log(data.main.temp);
-
     // store response data in the state
     setWeatherData({
       temp: data.main.temp,
@@ -67,10 +61,11 @@ function App() {
   useEffect(() => {
     // test code: only print the state-property if it has updated
     if(coordinates === null) {
+
       return
     }
     else{
-    console.log(coordinates);
+
     getWeatherData(coordinates.latitude, coordinates.longitude);
     }
   }, [coordinates]);
