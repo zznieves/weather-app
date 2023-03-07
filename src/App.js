@@ -51,7 +51,14 @@ function App() {
     console.log(data.main.temp);
 
     // store response data in the state
-    setWeatherData(data.main.temp);
+    setWeatherData({
+      temp: data.main.temp,
+      feels_like: data.main.feels_like,
+      low: data.main.temp_min,
+      high: data.main.temp_max,
+      description: data.weather[0].description,
+
+    });
 
 
   }
@@ -85,8 +92,13 @@ function App() {
       <div className="App">
         <Header id='header' title='Weather App' />
         <InputForm fetchData={fetchData} />
-        <div>
-          <p>{`Temperature: ${weatherData}`}</p>
+        <div id='weather-data'>
+          <p>{`Temperature: ${Math.round(weatherData.temp)}°F`}</p>
+          <p>{`Low: ${Math.round(weatherData.low)}°F`}</p>
+          <p>{`High: ${Math.round(weatherData.high)}°F`}</p>
+          <p>{`Feels Like: ${Math.round(weatherData.feels_like)}°F`}</p>
+          <p>{`Description: ${weatherData.description}`}</p>
+
         </div>
       </div>
     );
