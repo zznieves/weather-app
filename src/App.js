@@ -25,7 +25,7 @@ function App() {
   async function getCoordinates(city, stateCode, countryCode) {
 
     // endpoint: call to OpenWeatherMap Geocoding API
-    let endpoint = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${stateCode},${countryCode}&limit=1&appid=5161d459aa5061baac3692c659a4a040`;
+    let endpoint = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${stateCode},${countryCode}&limit=1&appid=5161d459aa5061baac3692c659a4a040`;
 
     const response = await fetch(endpoint);
     const data = await response.json();
