@@ -48,3 +48,15 @@ p {
   margin: 0 auto;
 }
 
+input[type='text'] {
+  width: 100px;
+}
+
+select {
+  width: auto;
+}
+
+button[type='submit'] {
+  margin: 7px;
+}
+

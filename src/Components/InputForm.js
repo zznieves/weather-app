@@ -37,11 +37,13 @@ function InputForm(props) {
     return (
         <div id='form'>
             <div>
+                <label htmlFor='city'>City: </label>
                 <input type='text' name='city' value={city} onChange={changeInput}/>
             </div>
             <div>
+                <label htmlFor='stateCode'>State: </label>
                 <select name='stateCode' onChange={changeInput}>
-                    <option value=''>Please select a state......</option>
+                    <option value=''>Please select a state</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -96,6 +98,7 @@ function InputForm(props) {
                 </select>
             </div>
             <div>
+                <label htmlFor='countryCode'>Country: </label>
                 <input type='text' name='countryCode' value='US' readOnly />
             </div>
             <button type='submit' onClick={() => fetchData(city, stateCode, countryCode)}>Submit</button>
