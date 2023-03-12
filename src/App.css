@@ -30,10 +30,10 @@
 
 body {
   
-  background-color:deepskyblue;
+  background-color: #1F1F28;
 }
 
-p {
+h1, h2, h3, h4, h5, h6, p, label {
   color: white;
 }
 
@@ -60,3 +60,23 @@ button[type='submit'] {
   margin: 7px;
 }
 
+div#weather-icon {
+
+  width: fit-content;
+  margin: 20px auto 0 auto;
+
+}
+
+
+div#weather-icon > img {
+
+  height: 250px;
+  width: 250px;
+}
+
+div#range > h4 {
+
+  display: inline;
+
+  padding: 0 10px;
+}

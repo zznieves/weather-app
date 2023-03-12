@@ -3,6 +3,14 @@ import './App.css';
 import Header from './Components/Header';
 import InputForm from './Components/InputForm';
 
+// weather Icon imports
+import ClearIcon from './assets/clear.png';
+import CloudyIcon from './assets/cloudy.png';
+import RainIcon from './assets/rain.png';
+import ThunderStormIcon from './assets/thunderstorms.png';
+
+
+
 // functional component
 function App() {
 
@@ -74,6 +82,32 @@ function App() {
   }, [coordinates]);
 
 
+  // function: select the proper image to describe the current weather
+  function selectWeatherIcon(description) {
+
+    // pick the image based on the description
+
+    // if clear weather
+    if(description.includes('clear')) {
+      return ClearIcon;
+    }
+    // if rain weather
+    else if(description.includes('rain') || description.includes('drizzle')) {
+      return RainIcon;
+    }
+    // if thunderstorm weather
+    else if(description.includes('thunderstorm')) {
+      return ThunderStormIcon;
+    }
+    // if cloudy or snow
+    else {
+      return CloudyIcon;
+    }
+    
+
+  }
+
+
   // conditional rendering: if we have weather data, display it in the browser
   if(weatherData === null) {
 
@@ -86,16 +120,36 @@ function App() {
   }
   else {
 
+    // destructure weather data
+    const { temp, description,  high, low, feels_like  } = weatherData;
+
+    // set image for weather description: make into a method
+    let image = <img src = { selectWeatherIcon(description) } />
+
     return (
       <div className="App">
         <Header id='header' title='Weather App' />
         <InputForm fetchData={fetchData} />
         <div id='weather-data'>
-          <p>{`Temperature: ${Math.round(weatherData.temp)}°F`}</p>
-          <p>{`Low: ${Math.round(weatherData.low)}°F`}</p>
-          <p>{`High: ${Math.round(weatherData.high)}°F`}</p>
-          <p>{`Feels Like: ${Math.round(weatherData.feels_like)}°F`}</p>
-          <p>{`Description: ${weatherData.description}`}</p>
+
+          <div id='weather-icon'>
+            {image}
+          </div>
+
+          <div id='main-temp'>
+            <h2>{`${Math.round(temp)}°F`}</h2>
+          </div>
+
+          <div id='description-main'>
+            <h3>{`${description}`}</h3>
+          </div>
+          
+          <div id='range'>
+            <h4>{`High: ${Math.round(high)}°F`}</h4>
+            <h4>{`Low: ${Math.round(low)}°F`}</h4>
+          </div>
+
+          <h4>{`Feels Like: ${Math.round(feels_like)}°F`}</h4>
 
         </div>
       </div>
