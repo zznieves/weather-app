@@ -124,7 +124,7 @@ function App() {
     const { temp, description,  high, low, feels_like  } = weatherData;
 
     // set image for weather description: make into a method
-    let image = <img src = { selectWeatherIcon(description) } />
+    let image = <img src = { selectWeatherIcon(description) } alt='Current weather' />
 
     return (
       <div className="App">
